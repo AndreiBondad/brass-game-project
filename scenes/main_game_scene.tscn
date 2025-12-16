@@ -7,6 +7,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+<<<<<<< HEAD
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -15,3 +16,5 @@ offset_top = 56.0
 offset_right = 698.0
 offset_bottom = 349.0
 text = "Blah"
+=======
+>>>>>>> parent of 074b1c0 (Test commit no text)
