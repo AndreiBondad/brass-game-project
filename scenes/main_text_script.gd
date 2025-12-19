@@ -5,7 +5,8 @@ var testTextLength = testText.length();
 var count = 0;
 
 func _ready():
-	add_text("Hello")
+	#add_text("Hello")
+	pass
 
 func _printText():
 	pass
