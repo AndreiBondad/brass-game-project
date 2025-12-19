@@ -13,6 +13,7 @@ func _printText():
 
 
 func _on_timer_timeout() -> void:
+	#added a test comment
 	if (count < testTextLength):
 		append_text(testText[count]);
 		count = count + 1
