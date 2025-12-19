@@ -1,17 +1,19 @@
-[gd_scene format=3 uid="uid://c61wu0u15krtk"]
+[gd_scene load_steps=2 format=3 uid="uid://c61wu0u15krtk"]
 
-[node name="Control" type="Control"]
+[ext_resource type="Script" uid="uid://bpd7ventlkpt2" path="res://scenes/main_text_script.gd" id="1_it2yt"]
+
+[node name="MainCanvas" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_horizontal_guides_ = [-144.0]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="MainText" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 181.0
-offset_top = 56.0
-offset_right = 698.0
-offset_bottom = 349.0
+offset_right = 640.0
+offset_bottom = 384.0
 text = "This is a test"
+script = ExtResource("1_it2yt")
