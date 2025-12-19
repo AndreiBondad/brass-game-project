@@ -15,5 +15,10 @@ metadata/_edit_horizontal_guides_ = [-144.0]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 384.0
-text = "This is a test"
 script = ExtResource("1_it2yt")
+
+[node name="TextTimer" type="Timer" parent="MainText"]
+wait_time = 0.06
+autostart = true
+
+[connection signal="timeout" from="MainText/TextTimer" to="MainText" method="_on_timer_timeout"]
