@@ -13,7 +13,7 @@ metadata/_edit_horizontal_guides_ = [-144.0]
 
 [node name="MainText" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_right = 640.0
+offset_right = 1152.0
 offset_bottom = 384.0
 theme_override_font_sizes/normal_font_size = 32
 script = ExtResource("1_it2yt")
@@ -21,5 +21,20 @@ script = ExtResource("1_it2yt")
 [node name="TextTimer" type="Timer" parent="MainText"]
 wait_time = 0.06
 autostart = true
+
+[node name="TextChoices" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 384.0
+offset_right = 640.0
+offset_bottom = 648.0
+
+[node name="Choice1" type="Button" parent="TextChoices"]
+layout_mode = 2
+
+[node name="Choice2" type="Button" parent="TextChoices"]
+layout_mode = 2
+
+[node name="Choice3" type="Button" parent="TextChoices"]
+layout_mode = 2
 
 [connection signal="timeout" from="MainText/TextTimer" to="MainText" method="_on_timer_timeout"]
