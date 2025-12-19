@@ -10,8 +10,8 @@ grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 345.0
-offset_top = 186.0
-offset_right = 862.0
-offset_bottom = 479.0
+offset_left = 229.0
+offset_top = 99.0
+offset_right = 746.0
+offset_bottom = 392.0
 text = "Blah Blah Blah"
