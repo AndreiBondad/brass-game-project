@@ -39,3 +39,5 @@ layout_mode = 2
 
 [connection signal="timeout" from="MainText/TextTimer" to="MainText" method="_on_timer_timeout"]
 [connection signal="pressed" from="TextChoices/Choice1" to="MainText" method="_on_choice_1_pressed"]
+[connection signal="pressed" from="TextChoices/Choice2" to="MainText" method="_on_choice_2_pressed"]
+[connection signal="pressed" from="TextChoices/Choice3" to="MainText" method="_on_choice_3_pressed"]

@@ -1,6 +1,9 @@
 extends RichTextLabel
 
 var displayText = "Test Text Test Text Test Text Test Text Test Text"
+var choiceOneText = "Choice 1 was selected"
+var choiceTwoText = "Choice 2 was selected"
+var choiceThreeText = "Choice 3 was selected"
 var displayTextLength = displayText.length();
 var count = 0;
 
@@ -25,7 +28,21 @@ func _on_timer_timeout() -> void:
 
 
 func _on_choice_1_pressed() -> void:
-	displayText = "Choice 1 was selected"
+	displayText = choiceOneText
+	displayTextLength = displayText.length();
+	self.text = ""
+	count = 0
+
+
+func _on_choice_2_pressed() -> void:
+	displayText = choiceTwoText
+	displayTextLength = displayText.length();
+	self.text = ""
+	count = 0
+
+
+func _on_choice_3_pressed() -> void:
+	displayText = choiceThreeText
 	displayTextLength = displayText.length();
 	self.text = ""
 	count = 0
