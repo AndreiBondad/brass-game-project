@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c61wu0u15krtk"]
+[gd_scene load_steps=3 format=3 uid="uid://c61wu0u15krtk"]
 
 [ext_resource type="Script" uid="uid://bpd7ventlkpt2" path="res://scripts/main_text_script.gd" id="1_it2yt"]
+[ext_resource type="Script" uid="uid://m67xbxo2d2jl" path="res://scripts/text_controller.gd" id="1_qsd30"]
 
 [node name="MainCanvas" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qsd30")
 metadata/_edit_horizontal_guides_ = [-144.0]
 
 [node name="MainText" type="RichTextLabel" parent="."]
