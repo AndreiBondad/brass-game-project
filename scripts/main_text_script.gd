@@ -1,6 +1,8 @@
 extends RichTextLabel
 
-var displayText = "Test Text Test Text Test Text Test Text Test Text"
+var startingNode = TextNode.new()
+
+var displayText = startingNode.currentText
 var choiceOneText = "Choice 1 was selected"
 var choiceTwoText = "Choice 2 was selected"
 var choiceThreeText = "Choice 3 was selected"
