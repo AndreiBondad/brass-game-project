@@ -13,8 +13,11 @@ func _ready():
 	currentNode = startingNode
 	startingNode.set_options(TextNode.new("Option A was chosen"), TextNode.new("Option B was chosen"), TextNode.new("Option C was chosen"))
 	startingNode.optionList[0].set_options(TextNode.new("Option AA was chosen"), TextNode.new("Option AB was chosen"), TextNode.new("Option AC was chosen"))
+	startingNode.optionList[0].set_game_status(true, true, true)
 	startingNode.optionList[1].set_options(TextNode.new("Option BA was chosen"), TextNode.new("Option BB was chosen"), TextNode.new("Option BC was chosen"))
+	startingNode.optionList[1].set_game_status(true, true, true)
 	startingNode.optionList[2].set_options(TextNode.new("Option CA was chosen"), TextNode.new("Option CB was chosen"), TextNode.new("Option CC was chosen"))
+	startingNode.optionList[2].set_game_status(true, true, true)
 	
 	displayText = startingNode.currentText
 	choiceOneNode = startingNode.optionList[0]
@@ -41,6 +44,9 @@ func _on_timer_timeout() -> void:
 func _on_choice_1_pressed() -> void:
 	currentNode = currentNode.optionList[0]
 	displayText = currentNode.currentText
+	if (currentNode.gameOver == true):
+		displayText = displayText + "\nGame Over!"
+		get_parent().remove_child($"../TextChoices")
 	displayTextLength = displayText.length();
 	self.text = ""
 	count = 0
@@ -49,6 +55,9 @@ func _on_choice_1_pressed() -> void:
 func _on_choice_2_pressed() -> void:
 	currentNode = currentNode.optionList[1]
 	displayText = currentNode.currentText
+	if (currentNode.gameOver == true):
+		displayText = displayText + "\nGame Over!"
+		get_parent().remove_child($"../TextChoices")
 	displayTextLength = displayText.length();
 	self.text = ""
 	count = 0
@@ -57,6 +66,9 @@ func _on_choice_2_pressed() -> void:
 func _on_choice_3_pressed() -> void:
 	currentNode = currentNode.optionList[2]
 	displayText = currentNode.currentText
+	if (currentNode.gameOver == true):
+		displayText = displayText + "\nGame Over!"
+		get_parent().remove_child($"../TextChoices")
 	displayTextLength = displayText.length();
 	self.text = ""
 	count = 0
