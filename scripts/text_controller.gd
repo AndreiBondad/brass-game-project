@@ -1,5 +1,6 @@
 extends Control
 
+
 class_name TextNode
 
 var currentText = "This is the opening text"
@@ -21,14 +22,13 @@ func set_game_status(statusA, statusB, statusC) -> void:
 	optionList[1].gameOver = statusB
 	optionList[2].gameOver = statusC
 
-func _ready() -> void:
-	print("Main Canvas Ready called")
-	$MainText.connect("game_over", game_over_true)
-	print($MainText.game_over.get_connections())
+#func _ready() -> void:
+	#print("Main Canvas Ready called")
+	#$MainText.connect("game_over", game_over_true)
+	#print($MainText.game_over.get_connections())
 
-
-func game_over_true() -> void:
-	print("game over")
-	$TextChoices/Choice1.disabled = true
-	$TextChoices/Choice2.disabled = true
-	$TextChoices/Choice3.disabled = true
+#func game_over_true() -> void:
+	#print("game over")
+	#$TextChoices/Choice1.disabled = true
+	#$TextChoices/Choice2.disabled = true
+	#$TextChoices/Choice3.disabled = true

@@ -12,6 +12,7 @@ var displayTextLength
 var count = 0;
 
 func _ready():
+	print("Main Text Ready called")
 	startingNode = TextNode.new("This is the opening text")
 	currentNode = startingNode
 	startingNode.set_options(TextNode.new("Option A was chosen"), TextNode.new("Option B was chosen"), TextNode.new("Option C was chosen"))
@@ -29,11 +30,10 @@ func _ready():
 	
 	displayTextLength = displayText.length();
 
-
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("skip"):
 		count = displayTextLength + 1
-		self.text = displayText
+		text = displayText
 
 func _on_timer_timeout() -> void:
 	if (count < displayTextLength):
