@@ -4,11 +4,14 @@ class_name TextNode
 
 var currentText = "This is the opening text"
 
-var optionA
-var optionB
-var optionC
+var gameOver = false
 
-func _init() -> void:
-	optionA = "Option one was chosen"
-	optionB = "Option two was chosen"
-	optionC = "Option three was chosen"
+var optionList = []
+
+func _init(text) -> void:
+	currentText = text
+
+func set_options(optionA, optionB, optionC) -> void:
+	optionList.append(optionA)
+	optionList.append(optionB)
+	optionList.append(optionC)
