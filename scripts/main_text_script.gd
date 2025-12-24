@@ -3,9 +3,9 @@ extends RichTextLabel
 var startingNode = TextNode.new()
 
 var displayText = startingNode.currentText
-var choiceOneText = "Choice 1 was selected"
-var choiceTwoText = "Choice 2 was selected"
-var choiceThreeText = "Choice 3 was selected"
+var choiceOneText = startingNode.optionA
+var choiceTwoText = startingNode.optionB
+var choiceThreeText = startingNode.optionC
 var displayTextLength = displayText.length();
 var count = 0;
 
