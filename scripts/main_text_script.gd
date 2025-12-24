@@ -1,5 +1,8 @@
 extends RichTextLabel
 
+signal game_over
+
+var startingNode
 var currentNode
 var displayText
 var choiceOneNode
@@ -9,7 +12,7 @@ var displayTextLength
 var count = 0;
 
 func _ready():
-	var startingNode = TextNode.new("This is the opening text")
+	startingNode = TextNode.new("This is the opening text")
 	currentNode = startingNode
 	startingNode.set_options(TextNode.new("Option A was chosen"), TextNode.new("Option B was chosen"), TextNode.new("Option C was chosen"))
 	startingNode.optionList[0].set_options(TextNode.new("Option AA was chosen"), TextNode.new("Option AB was chosen"), TextNode.new("Option AC was chosen"))
@@ -26,8 +29,6 @@ func _ready():
 	
 	displayTextLength = displayText.length();
 
-func _printText():
-	pass
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("skip"):
@@ -44,9 +45,9 @@ func _on_timer_timeout() -> void:
 func _on_choice_1_pressed() -> void:
 	currentNode = currentNode.optionList[0]
 	displayText = currentNode.currentText
-	if (currentNode.gameOver == true):
+	if currentNode.gameOver == true:
+		game_over.emit()
 		displayText = displayText + "\nGame Over!"
-		get_parent().remove_child($"../TextChoices")
 	displayTextLength = displayText.length();
 	self.text = ""
 	count = 0
@@ -55,9 +56,9 @@ func _on_choice_1_pressed() -> void:
 func _on_choice_2_pressed() -> void:
 	currentNode = currentNode.optionList[1]
 	displayText = currentNode.currentText
-	if (currentNode.gameOver == true):
+	if currentNode.gameOver == true:
+		game_over.emit()
 		displayText = displayText + "\nGame Over!"
-		get_parent().remove_child($"../TextChoices")
 	displayTextLength = displayText.length();
 	self.text = ""
 	count = 0
@@ -66,9 +67,9 @@ func _on_choice_2_pressed() -> void:
 func _on_choice_3_pressed() -> void:
 	currentNode = currentNode.optionList[2]
 	displayText = currentNode.currentText
-	if (currentNode.gameOver == true):
+	if currentNode.gameOver == true:
+		game_over.emit()
 		displayText = displayText + "\nGame Over!"
-		get_parent().remove_child($"../TextChoices")
 	displayTextLength = displayText.length();
 	self.text = ""
 	count = 0
