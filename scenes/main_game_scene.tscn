@@ -60,6 +60,42 @@ disabled = true
 text = "Try Again?"
 script = ExtResource("4_oa6bs")
 
+[node name="SoldierStatuses" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 640.0
+offset_top = 384.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CortezStatus" type="RichTextLabel" parent="SoldierStatuses"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+text = "Cortez: "
+
+[node name="JensenStatus" type="RichTextLabel" parent="SoldierStatuses"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+text = "Jensen: "
+
+[node name="PetrovStatus" type="RichTextLabel" parent="SoldierStatuses"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+text = "Petrov: "
+
+[node name="WuStatus" type="RichTextLabel" parent="SoldierStatuses"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+text = "Wu: "
+
 [connection signal="game_over" from="MainText" to="TextChoices" method="_on_main_text_game_over"]
 [connection signal="game_over" from="MainText" to="GameOverButton" method="_on_main_text_game_over"]
 [connection signal="timeout" from="MainText/TextTimer" to="MainText" method="_on_timer_timeout"]
