@@ -1,25 +1,20 @@
 extends Control
 
+func _on_main_text_status_update() -> void:
+	print("signal emitted")
+	$SoldierStatuses/CortezStatus.text = "Cortez: " + $MainText.currentNode.statuses[0]
+	$SoldierStatuses/JensenStatus.text = "Jensen: " + $MainText.currentNode.statuses[1]
+	$SoldierStatuses/PetrovStatus.text = "Petrov: " + $MainText.currentNode.statuses[2]
+	$SoldierStatuses/WuStatus.text = "Wu: " + $MainText.currentNode.statuses[3]
 
-class_name TextNode
 
-var currentText = "This is the opening text"
-
-var gameOver = false
-
-var optionList = []
-
-var statuses = ["Alive", "Alive", "Alive", "Alive"]
-
-func _init(text) -> void:
-	currentText = text
-
-func set_options(optionA, optionB, optionC) -> void:
-	optionList.append(optionA)
-	optionList.append(optionB)
-	optionList.append(optionC)
+func _on_main_text_game_over() -> void:
+	$TextChoices/Choice1.disabled = true
+	$TextChoices/Choice1.visible = false
+	$TextChoices/Choice2.disabled = true
+	$TextChoices/Choice2.visible = false
+	$TextChoices/Choice3.disabled = true
+	$TextChoices/Choice3.visible = false
 	
-func set_game_status(statusA, statusB, statusC) -> void:
-	optionList[0].gameOver = statusA
-	optionList[1].gameOver = statusB
-	optionList[2].gameOver = statusC
+	$GameOverButton.visible = true
+	$GameOverButton.disabled = false

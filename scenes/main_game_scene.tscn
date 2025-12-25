@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c61wu0u15krtk"]
+[gd_scene load_steps=4 format=3 uid="uid://c61wu0u15krtk"]
 
 [ext_resource type="Script" uid="uid://bpd7ventlkpt2" path="res://scripts/main_text_script.gd" id="1_it2yt"]
 [ext_resource type="Script" uid="uid://m67xbxo2d2jl" path="res://scripts/text_controller.gd" id="1_qsd30"]
-[ext_resource type="Script" uid="uid://buf1x3r02mfgo" path="res://scripts/choice_controller.gd" id="3_d383n"]
 [ext_resource type="Script" uid="uid://d1dlsrqg3bl7f" path="res://scripts/game_over_button.gd" id="4_oa6bs"]
 
 [node name="MainCanvas" type="Control"]
@@ -31,7 +30,6 @@ layout_mode = 0
 offset_top = 384.0
 offset_right = 640.0
 offset_bottom = 648.0
-script = ExtResource("3_d383n")
 
 [node name="Choice1" type="Button" parent="TextChoices"]
 layout_mode = 2
@@ -96,8 +94,8 @@ size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 32
 text = "Wu: "
 
-[connection signal="game_over" from="MainText" to="TextChoices" method="_on_main_text_game_over"]
-[connection signal="game_over" from="MainText" to="GameOverButton" method="_on_main_text_game_over"]
+[connection signal="game_over" from="MainText" to="." method="_on_main_text_game_over"]
+[connection signal="status_update" from="MainText" to="." method="_on_main_text_status_update"]
 [connection signal="timeout" from="MainText/TextTimer" to="MainText" method="_on_timer_timeout"]
 [connection signal="pressed" from="TextChoices/Choice1" to="MainText" method="_on_choice_1_pressed"]
 [connection signal="pressed" from="TextChoices/Choice2" to="MainText" method="_on_choice_2_pressed"]

@@ -1,6 +1,30 @@
 extends RichTextLabel
 
+class TextNode:
+	var currentText = "This is the opening text"
+
+	var gameOver = false
+
+	var optionList = []
+
+	var statuses = ["Alive", "Alive", "Alive", "Alive"]
+
+	func _init(nodeText) -> void:
+		currentText = nodeText
+
+	func set_options(optionA, optionB, optionC) -> void:
+		optionList.append(optionA)
+		optionList.append(optionB)
+		optionList.append(optionC)
+		
+	func set_game_status(statusA, statusB, statusC) -> void:
+		optionList[0].gameOver = statusA
+		optionList[1].gameOver = statusB
+		optionList[2].gameOver = statusC
+
 signal game_over
+
+signal status_update
 
 var startingNode
 var currentNode
@@ -10,6 +34,8 @@ var choiceTwoNode
 var choiceThreeNode
 var displayTextLength
 var count = 0;
+
+
 
 func _ready():
 	print("Main Text Ready called")
@@ -22,6 +48,9 @@ func _ready():
 	startingNode.optionList[1].set_game_status(true, true, true)
 	startingNode.optionList[2].set_options(TextNode.new("Option CA was chosen"), TextNode.new("Option CB was chosen"), TextNode.new("Option CC was chosen"))
 	startingNode.optionList[2].set_game_status(true, true, true)
+	
+	status_update.emit()
+
 	
 	displayText = startingNode.currentText
 	choiceOneNode = startingNode.optionList[0]
