@@ -9,6 +9,8 @@ var gameOver = false
 
 var optionList = []
 
+var statuses = ["Alive", "Alive", "Alive", "Alive"]
+
 func _init(text) -> void:
 	currentText = text
 
