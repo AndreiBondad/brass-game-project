@@ -80,6 +80,7 @@ func _on_timer_timeout() -> void:
 func _on_choice_1_pressed() -> void:
 	currentNode = currentNode.optionList[0]
 	displayText = currentNode.currentText
+	status_update.emit()
 	if currentNode.gameOver == true:
 		game_over.emit()
 		displayText = displayText + "\nGame Over!"
@@ -91,6 +92,7 @@ func _on_choice_1_pressed() -> void:
 func _on_choice_2_pressed() -> void:
 	currentNode = currentNode.optionList[1]
 	displayText = currentNode.currentText
+	status_update.emit()
 	if currentNode.gameOver == true:
 		game_over.emit()
 		displayText = displayText + "\nGame Over!"
@@ -102,6 +104,7 @@ func _on_choice_2_pressed() -> void:
 func _on_choice_3_pressed() -> void:
 	currentNode = currentNode.optionList[2]
 	displayText = currentNode.currentText
+	status_update.emit()
 	if currentNode.gameOver == true:
 		game_over.emit()
 		displayText = displayText + "\nGame Over!"
