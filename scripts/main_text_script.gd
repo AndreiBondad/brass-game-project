@@ -2,13 +2,9 @@ extends RichTextLabel
 
 class TextNode:
 	var currentText = "This is the opening text"
-	
 	var choiceText = ""
-
 	var gameOver = false
-
 	var optionList = []
-
 	var statuses = ["Alive", "Alive", "Alive", "Alive"]
 
 	func _init(nodeText) -> void:
@@ -33,10 +29,9 @@ class TextNode:
 	func set_choice_text(text):
 		choiceText = text
 
-
-
 signal game_over
 signal status_update
+signal choice_text_update
 
 var startingNode
 var currentNode
@@ -47,22 +42,31 @@ var choiceThreeNode
 var displayTextLength
 var count = 0;
 
-
+var nodeA = TextNode.new("Option A was chosen")
+var nodeAA = TextNode.new("Option AA was chosen")
+var nodeAB = TextNode.new("Option AB was chosen")
+var nodeAC = TextNode.new("Option AC was chosen")
+var nodeB = TextNode.new("Option B was chosen")
+var nodeBA = TextNode.new("Option BA was chosen")
+var nodeBB = TextNode.new("Option BB was chosen")
+var nodeBC = TextNode.new("Option BC was chosen")
+var nodeC = TextNode.new("Option C was chosen")
+var nodeCA = TextNode.new("Option CA was chosen")
+var nodeCB = TextNode.new("Option CB was chosen")
+var nodeCC = TextNode.new("Option CC was chosen")
 
 func _ready():
-	print("Main Text Ready called")
 	startingNode = TextNode.new("This is the opening text")
 	currentNode = startingNode
-	startingNode.set_options(TextNode.new("Option A was chosen"), TextNode.new("Option B was chosen"), TextNode.new("Option C was chosen"))
-	startingNode.optionList[0].set_options(TextNode.new("Option AA was chosen"), TextNode.new("Option AB was chosen"), TextNode.new("Option AC was chosen"))
-	startingNode.optionList[0].set_game_over_status(true, true, true)
-	startingNode.optionList[1].set_options(TextNode.new("Option BA was chosen"), TextNode.new("Option BB was chosen"), TextNode.new("Option BC was chosen"))
-	startingNode.optionList[1].set_game_over_status(true, true, true)
-	startingNode.optionList[2].set_options(TextNode.new("Option CA was chosen"), TextNode.new("Option CB was chosen"), TextNode.new("Option CC was chosen"))
-	startingNode.optionList[2].set_game_over_status(true, true, true)
+	startingNode.set_options(nodeA, nodeB, nodeC)
+	nodeA.set_options(nodeAA, nodeAB, nodeAC)
+	nodeB.set_options(nodeBA, nodeBB, nodeBC)
+	nodeC.set_options(nodeCA, nodeCB, nodeCC)
+	nodeA.set_game_over_status(true, true, true)
+	nodeB.set_game_over_status(true, true, true)
+	nodeC.set_game_over_status(true, true, true)
 	
 	status_update.emit()
-
 	
 	displayText = startingNode.currentText
 	choiceOneNode = startingNode.optionList[0]
@@ -80,8 +84,6 @@ func _on_timer_timeout() -> void:
 	if (count < displayTextLength):
 		append_text(displayText[count]);
 		count = count + 1
-	
-
 
 func _on_choice_1_pressed() -> void:
 	currentNode = currentNode.optionList[0]
@@ -94,7 +96,6 @@ func _on_choice_1_pressed() -> void:
 	self.text = ""
 	count = 0
 
-
 func _on_choice_2_pressed() -> void:
 	currentNode = currentNode.optionList[1]
 	displayText = currentNode.currentText
@@ -105,7 +106,6 @@ func _on_choice_2_pressed() -> void:
 	displayTextLength = displayText.length();
 	self.text = ""
 	count = 0
-
 
 func _on_choice_3_pressed() -> void:
 	currentNode = currentNode.optionList[2]
