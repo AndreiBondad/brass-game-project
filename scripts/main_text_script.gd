@@ -17,10 +17,16 @@ class TextNode:
 		optionList.append(optionB)
 		optionList.append(optionC)
 		
-	func set_game_status(statusA, statusB, statusC) -> void:
+	func set_game_over_status(statusA, statusB, statusC) -> void:
 		optionList[0].gameOver = statusA
 		optionList[1].gameOver = statusB
 		optionList[2].gameOver = statusC
+	
+	func set_soldier_statuses(cortezStatus, jensenStatus, petrovStatus, wuStatus):
+		statuses[0] = cortezStatus
+		statuses[1] = jensenStatus
+		statuses[2] = petrovStatus
+		statuses[3] = wuStatus
 
 signal game_over
 
@@ -43,11 +49,11 @@ func _ready():
 	currentNode = startingNode
 	startingNode.set_options(TextNode.new("Option A was chosen"), TextNode.new("Option B was chosen"), TextNode.new("Option C was chosen"))
 	startingNode.optionList[0].set_options(TextNode.new("Option AA was chosen"), TextNode.new("Option AB was chosen"), TextNode.new("Option AC was chosen"))
-	startingNode.optionList[0].set_game_status(true, true, true)
+	startingNode.optionList[0].set_game_over_status(true, true, true)
 	startingNode.optionList[1].set_options(TextNode.new("Option BA was chosen"), TextNode.new("Option BB was chosen"), TextNode.new("Option BC was chosen"))
-	startingNode.optionList[1].set_game_status(true, true, true)
+	startingNode.optionList[1].set_game_over_status(true, true, true)
 	startingNode.optionList[2].set_options(TextNode.new("Option CA was chosen"), TextNode.new("Option CB was chosen"), TextNode.new("Option CC was chosen"))
-	startingNode.optionList[2].set_game_status(true, true, true)
+	startingNode.optionList[2].set_game_over_status(true, true, true)
 	
 	status_update.emit()
 
