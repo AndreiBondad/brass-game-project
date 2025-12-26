@@ -2,6 +2,8 @@ extends RichTextLabel
 
 class TextNode:
 	var currentText = "This is the opening text"
+	
+	var choiceText = ""
 
 	var gameOver = false
 
@@ -16,20 +18,24 @@ class TextNode:
 		optionList.append(optionA)
 		optionList.append(optionB)
 		optionList.append(optionC)
-		
+
 	func set_game_over_status(statusA, statusB, statusC) -> void:
 		optionList[0].gameOver = statusA
 		optionList[1].gameOver = statusB
 		optionList[2].gameOver = statusC
-	
+
 	func set_soldier_statuses(cortezStatus, jensenStatus, petrovStatus, wuStatus):
 		statuses[0] = cortezStatus
 		statuses[1] = jensenStatus
 		statuses[2] = petrovStatus
 		statuses[3] = wuStatus
 
-signal game_over
+	func set_choice_text(text):
+		choiceText = text
 
+
+
+signal game_over
 signal status_update
 
 var startingNode
