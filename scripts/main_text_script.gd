@@ -42,23 +42,49 @@ var choiceThreeNode
 var displayTextLength
 var count = 0;
 
-var nodeA = TextNode.new("Option A was chosen")
-var nodeAA = TextNode.new("Option AA was chosen")
-var nodeAB = TextNode.new("Option AB was chosen")
-var nodeAC = TextNode.new("Option AC was chosen")
-var nodeB = TextNode.new("Option B was chosen")
-var nodeBA = TextNode.new("Option BA was chosen")
-var nodeBB = TextNode.new("Option BB was chosen")
-var nodeBC = TextNode.new("Option BC was chosen")
-var nodeC = TextNode.new("Option C was chosen")
-var nodeCA = TextNode.new("Option CA was chosen")
-var nodeCB = TextNode.new("Option CB was chosen")
-var nodeCC = TextNode.new("Option CC was chosen")
-
 func _ready():
+	var nodeA = TextNode.new("Option A was chosen")
+	nodeA.set_choice_text("OpionA")
+	var nodeAA = TextNode.new("Option AA was chosen")
+	nodeAA.set_choice_text("OpionAA")
+	nodeAA.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
+	var nodeAB = TextNode.new("Option AB was chosen")
+	nodeAB.set_choice_text("OpionAB")
+	nodeAB.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
+	var nodeAC = TextNode.new("Option AC was chosen")
+	nodeAC.set_choice_text("OpionAC")
+	nodeAC.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
+
+
+
+	var nodeB = TextNode.new("Option B was chosen")
+	var nodeBA = TextNode.new("Option BA was chosen")
+	nodeBA.set_choice_text("OpionBA")
+	nodeBA.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
+	var nodeBB = TextNode.new("Option BB was chosen")
+	nodeBB.set_choice_text("OpionBB")
+	nodeBB.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
+	var nodeBC = TextNode.new("Option BC was chosen")
+	nodeBC.set_choice_text("OpionBB")
+	nodeBC.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
+
+
+
+	var nodeC = TextNode.new("Option C was chosen")
+	var nodeCA = TextNode.new("Option CA was chosen")
+	nodeCA.set_choice_text("OpionCA")
+	nodeCA.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
+	var nodeCB = TextNode.new("Option CB was chosen")
+	nodeCB.set_choice_text("OpionCB")
+	nodeCB.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
+	var nodeCC = TextNode.new("Option CC was chosen")
+	nodeCC.set_choice_text("OpionCC")
+	nodeCC.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
+
 	startingNode = TextNode.new("This is the opening text")
 	currentNode = startingNode
 	startingNode.set_options(nodeA, nodeB, nodeC)
+	
 	nodeA.set_options(nodeAA, nodeAB, nodeAC)
 	nodeB.set_options(nodeBA, nodeBB, nodeBC)
 	nodeC.set_options(nodeCA, nodeCB, nodeCC)
@@ -67,6 +93,7 @@ func _ready():
 	nodeC.set_game_over_status(true, true, true)
 	
 	status_update.emit()
+	choice_text_update.emit()
 	
 	displayText = startingNode.currentText
 	choiceOneNode = startingNode.optionList[0]

@@ -18,3 +18,7 @@ func _on_main_text_game_over() -> void:
 	
 	$GameOverButton.visible = true
 	$GameOverButton.disabled = false
+
+
+func _on_main_text_choice_text_update() -> void:
+	pass # Replace with function body.

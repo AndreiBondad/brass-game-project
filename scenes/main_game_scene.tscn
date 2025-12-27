@@ -94,6 +94,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 32
 text = "Wu: "
 
+[connection signal="choice_text_update" from="MainText" to="." method="_on_main_text_choice_text_update"]
 [connection signal="game_over" from="MainText" to="." method="_on_main_text_game_over"]
 [connection signal="status_update" from="MainText" to="." method="_on_main_text_status_update"]
 [connection signal="timeout" from="MainText/TextTimer" to="MainText" method="_on_timer_timeout"]
