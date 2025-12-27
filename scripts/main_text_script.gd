@@ -58,6 +58,7 @@ func _ready():
 
 
 	var nodeB = TextNode.new("Option B was chosen")
+	nodeB.set_choice_text("OpionB")
 	var nodeBA = TextNode.new("Option BA was chosen")
 	nodeBA.set_choice_text("OpionBA")
 	nodeBA.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
@@ -71,6 +72,7 @@ func _ready():
 
 
 	var nodeC = TextNode.new("Option C was chosen")
+	nodeC.set_choice_text("OpionC")
 	var nodeCA = TextNode.new("Option CA was chosen")
 	nodeCA.set_choice_text("OpionCA")
 	nodeCA.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
@@ -116,6 +118,8 @@ func _on_choice_1_pressed() -> void:
 	currentNode = currentNode.optionList[0]
 	displayText = currentNode.currentText
 	status_update.emit()
+	if currentNode.gameOver == false:
+		choice_text_update.emit()
 	if currentNode.gameOver == true:
 		game_over.emit()
 		displayText = displayText + "\nGame Over!"
@@ -127,6 +131,8 @@ func _on_choice_2_pressed() -> void:
 	currentNode = currentNode.optionList[1]
 	displayText = currentNode.currentText
 	status_update.emit()
+	if currentNode.gameOver == false:
+		choice_text_update.emit()
 	if currentNode.gameOver == true:
 		game_over.emit()
 		displayText = displayText + "\nGame Over!"
@@ -138,6 +144,8 @@ func _on_choice_3_pressed() -> void:
 	currentNode = currentNode.optionList[2]
 	displayText = currentNode.currentText
 	status_update.emit()
+	if currentNode.gameOver == false:
+		choice_text_update.emit()
 	if currentNode.gameOver == true:
 		game_over.emit()
 		displayText = displayText + "\nGame Over!"

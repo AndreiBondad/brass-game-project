@@ -21,4 +21,6 @@ func _on_main_text_game_over() -> void:
 
 
 func _on_main_text_choice_text_update() -> void:
-	pass # Replace with function body.
+	$TextChoices/Choice1.text = $MainText.currentNode.optionList[0].choiceText
+	$TextChoices/Choice2.text = $MainText.currentNode.optionList[1].choiceText
+	$TextChoices/Choice3.text = $MainText.currentNode.optionList[2].choiceText
