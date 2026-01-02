@@ -40,6 +40,12 @@ layout_mode = 2
 [node name="Choice3" type="Button" parent="TextChoices"]
 layout_mode = 2
 
+[node name="Choice4" type="Button" parent="TextChoices"]
+layout_mode = 2
+
+[node name="Choice5" type="Button" parent="TextChoices"]
+layout_mode = 2
+
 [node name="GameOverButton" type="Button" parent="."]
 visible = false
 layout_mode = 1
@@ -101,4 +107,6 @@ text = "Wu: "
 [connection signal="pressed" from="TextChoices/Choice1" to="MainText" method="_on_choice_1_pressed"]
 [connection signal="pressed" from="TextChoices/Choice2" to="MainText" method="_on_choice_2_pressed"]
 [connection signal="pressed" from="TextChoices/Choice3" to="MainText" method="_on_choice_3_pressed"]
+[connection signal="pressed" from="TextChoices/Choice4" to="MainText" method="_on_choice_3_pressed"]
+[connection signal="pressed" from="TextChoices/Choice5" to="MainText" method="_on_choice_3_pressed"]
 [connection signal="pressed" from="GameOverButton" to="GameOverButton" method="_on_pressed"]

@@ -21,6 +21,18 @@ func _on_main_text_game_over() -> void:
 
 
 func _on_main_text_choice_text_update() -> void:
-	$TextChoices/Choice1.text = $MainText.currentNode.optionList[0].choiceText
-	$TextChoices/Choice2.text = $MainText.currentNode.optionList[1].choiceText
-	$TextChoices/Choice3.text = $MainText.currentNode.optionList[2].choiceText
+	if $MainText.currentNode.isConversationNode:
+		$TextChoices/Choice1.text = $MainText.currentNode.optionList[0].choiceText
+		$TextChoices/Choice2.text = $MainText.currentNode.optionList[1].choiceText
+		$TextChoices/Choice3.text = $MainText.currentNode.optionList[2].choiceText
+		$TextChoices/Choice4.text = $MainText.currentNode.optionList[3].choiceText
+		$TextChoices/Choice5.text = $MainText.currentNode.optionList[5].choiceText
+	else:
+		$TextChoices/Choice4.disabled = true
+		$TextChoices/Choice4.visible = false
+		$TextChoices/Choice5.disabled = true
+		$TextChoices/Choice5.visible = false
+		
+		$TextChoices/Choice1.text = $MainText.currentNode.optionList[0].choiceText
+		$TextChoices/Choice2.text = $MainText.currentNode.optionList[1].choiceText
+		$TextChoices/Choice3.text = $MainText.currentNode.optionList[2].choiceText

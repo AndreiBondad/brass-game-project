@@ -6,6 +6,7 @@ class TextNode:
 	var gameOver = false
 	var optionList = ["", "", "", "", ""]
 	var statuses = ["Alive", "Alive", "Alive", "Alive"]
+	var isConversationNode = false
 
 	func _init(nodeText) -> void:
 		currentText = nodeText
