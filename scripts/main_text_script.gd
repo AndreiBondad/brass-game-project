@@ -15,6 +15,13 @@ class TextNode:
 		optionList[1] = optionB
 		optionList[2] = optionC
 
+	func set_conversation_options(optionA, optionB, optionC, optionD, optionE) -> void:
+		optionList[0] = optionA
+		optionList[1] = optionB
+		optionList[2] = optionC
+		optionList[3] = optionD
+		optionList[4] = optionE
+
 	func set_game_over_status(statusA, statusB, statusC) -> void:
 		optionList[0].gameOver = statusA
 		optionList[1].gameOver = statusB
