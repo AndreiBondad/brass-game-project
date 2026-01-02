@@ -37,6 +37,8 @@ class TextNode:
 	func set_choice_text(text):
 		choiceText = text
 
+	
+
 signal game_over
 signal status_update
 signal choice_text_update
@@ -51,6 +53,74 @@ var displayTextLength
 var count = 0;
 
 func _ready():
+	var conversationNodeHub = TextNode.new("Conversation Node Hub")
+	conversationNodeHub.set_choice_text("Back")
+	conversationNodeHub.isConversationNode = true
+	
+	var cortezConversationNode = TextNode.new("Cortez Conversation Node Hub")
+	cortezConversationNode.set_choice_text("Cortez Conversation Node")
+	cortezConversationNode.isConversationNode = true
+	var cortezNodeA = TextNode.new("Conversation Node A")
+	cortezNodeA.set_choice_text("Conversation Node A")
+	cortezNodeA.isConversationNode = true
+	var cortezNodeB = TextNode.new("Conversation Node B")
+	cortezNodeB.set_choice_text("Conversation Node B")
+	cortezNodeB.isConversationNode = true
+	var cortezNodeC = TextNode.new("Cortez Conversation Node C")
+	cortezNodeC.set_choice_text("Cortez Conversation Node C")
+	cortezNodeC.isConversationNode = true
+	var cortezNodeD = TextNode.new("Cortez Conversation Node D")
+	cortezNodeD.set_choice_text("Cortez Conversation Node D") 
+	cortezNodeD.isConversationNode = true
+
+	var jensenConversationNode = TextNode.new("Jensen Conversation Node Hub")
+	jensenConversationNode.set_choice_text("Jensen Conversation Node")
+	jensenConversationNode.isConversationNode = true
+	var jensenNodeA = TextNode.new("Jensen Conversation Node A")
+	jensenNodeA.set_choice_text("Jensen Conversation Node A")
+	jensenNodeA.isConversationNode = true
+	var jensenNodeB = TextNode.new("Jensen Conversation Node B")
+	jensenNodeB.set_choice_text("Jensen Conversation Node B")
+	jensenNodeB.isConversationNode = true
+	var jensenNodeC = TextNode.new("Jensen Conversation Node C")
+	jensenNodeC.set_choice_text("Jensen Conversation Node C")
+	jensenNodeC.isConversationNode = true
+	var jensenNodeD = TextNode.new("Jensen Conversation Node D")
+	jensenNodeD.set_choice_text("Jensen Conversation Node D")
+	jensenNodeD.isConversationNode = true
+
+	var petrovConversationNode = TextNode.new("Petrov Conversation Node Hub")
+	petrovConversationNode.set_choice_text("Petrov Conversation Node")
+	petrovConversationNode.isConversationNode = true
+	var petrovNodeA = TextNode.new("Petrov Conversation Node A")
+	petrovNodeA.set_choice_text("Petrov Conversation Node A")
+	petrovNodeA.isConversationNode = true
+	var petrovNodeB = TextNode.new("Petrov Conversation Node B")
+	petrovNodeB.set_choice_text("Petrov Conversation Node B")
+	petrovNodeB.isConversationNode = true
+	var petrovNodeC = TextNode.new("Petrov Conversation Node C")
+	petrovNodeC.set_choice_text("Petrov Conversation Node C")
+	petrovNodeC.isConversationNode = true
+	var petrovNodeD = TextNode.new("Petrov Conversation Node D")
+	petrovNodeD.set_choice_text("Petrov Conversation Node D")
+	petrovNodeD.isConversationNode = true
+
+	var wuConversationNode = TextNode.new("Wu Conversation Node Hub")
+	wuConversationNode.set_choice_text("Wu Conversation Node")
+	wuConversationNode.isConversationNode = true
+	var wuNodeA = TextNode.new("Wu Conversation Node A")
+	wuNodeA.set_choice_text("Wu Conversation Node A")
+	wuNodeA.isConversationNode = true
+	var wuNodeB = TextNode.new("Wu Conversation Node B")
+	wuNodeB.set_choice_text("Wu Conversation Node B")
+	wuNodeB.isConversationNode = true
+	var wuNodeC = TextNode.new("Wu Conversation Node C")
+	wuNodeC.set_choice_text("Wu Conversation Node C")
+	wuNodeC.isConversationNode = true
+	var wuNodeD = TextNode.new("Wu Conversation Node D")
+	wuNodeD.set_choice_text("Wu Conversation Node D")
+	wuNodeD.isConversationNode = true
+
 	var nodeA = TextNode.new("Option A was chosen")
 	nodeA.set_choice_text("OpionA")
 	var nodeAA = TextNode.new("Option AA was chosen")
