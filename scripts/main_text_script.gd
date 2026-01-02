@@ -4,16 +4,16 @@ class TextNode:
 	var currentText = "This is the opening text"
 	var choiceText = ""
 	var gameOver = false
-	var optionList = []
+	var optionList = ["", "", "", "", ""]
 	var statuses = ["Alive", "Alive", "Alive", "Alive"]
 
 	func _init(nodeText) -> void:
 		currentText = nodeText
 
 	func set_options(optionA, optionB, optionC) -> void:
-		optionList.append(optionA)
-		optionList.append(optionB)
-		optionList.append(optionC)
+		optionList[0] = optionA
+		optionList[1] = optionB
+		optionList[2] = optionC
 
 	func set_game_over_status(statusA, statusB, statusC) -> void:
 		optionList[0].gameOver = statusA
