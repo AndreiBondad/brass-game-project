@@ -253,3 +253,31 @@ func _on_choice_3_pressed() -> void:
 	displayTextLength = displayText.length();
 	self.text = ""
 	count = 0
+
+
+func _on_choice_4_pressed() -> void:
+	currentNode = currentNode.optionList[3]
+	displayText = currentNode.currentText
+	status_update.emit()
+	if currentNode.gameOver == false:
+		choice_text_update.emit()
+	if currentNode.gameOver == true:
+		game_over.emit()
+		displayText = displayText + "\nGame Over!"
+	displayTextLength = displayText.length();
+	self.text = ""
+	count = 0
+
+
+func _on_choice_5_pressed() -> void:
+	currentNode = currentNode.optionList[4]
+	displayText = currentNode.currentText
+	status_update.emit()
+	if currentNode.gameOver == false:
+		choice_text_update.emit()
+	if currentNode.gameOver == true:
+		game_over.emit()
+		displayText = displayText + "\nGame Over!"
+	displayTextLength = displayText.length();
+	self.text = ""
+	count = 0
