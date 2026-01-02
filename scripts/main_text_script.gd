@@ -60,11 +60,11 @@ func _ready():
 	var cortezConversationNode = TextNode.new("Cortez Conversation Node Hub")
 	cortezConversationNode.set_choice_text("Cortez Conversation Node")
 	cortezConversationNode.isConversationNode = true
-	var cortezNodeA = TextNode.new("Conversation Node A")
-	cortezNodeA.set_choice_text("Conversation Node A")
+	var cortezNodeA = TextNode.new("Cortez Conversation Node A")
+	cortezNodeA.set_choice_text("Cortez Conversation Node A")
 	cortezNodeA.isConversationNode = true
-	var cortezNodeB = TextNode.new("Conversation Node B")
-	cortezNodeB.set_choice_text("Conversation Node B")
+	var cortezNodeB = TextNode.new("Cortez Conversation Node B")
+	cortezNodeB.set_choice_text("Cortez Conversation Node B")
 	cortezNodeB.isConversationNode = true
 	var cortezNodeC = TextNode.new("Cortez Conversation Node C")
 	cortezNodeC.set_choice_text("Cortez Conversation Node C")
@@ -72,6 +72,11 @@ func _ready():
 	var cortezNodeD = TextNode.new("Cortez Conversation Node D")
 	cortezNodeD.set_choice_text("Cortez Conversation Node D") 
 	cortezNodeD.isConversationNode = true
+	cortezConversationNode.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	cortezNodeA.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	cortezNodeB.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	cortezNodeC.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	cortezNodeD.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
 
 	var jensenConversationNode = TextNode.new("Jensen Conversation Node Hub")
 	jensenConversationNode.set_choice_text("Jensen Conversation Node")
@@ -88,6 +93,11 @@ func _ready():
 	var jensenNodeD = TextNode.new("Jensen Conversation Node D")
 	jensenNodeD.set_choice_text("Jensen Conversation Node D")
 	jensenNodeD.isConversationNode = true
+	jensenConversationNode.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	jensenNodeA.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	jensenNodeB.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	jensenNodeC.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	jensenNodeD.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
 
 	var petrovConversationNode = TextNode.new("Petrov Conversation Node Hub")
 	petrovConversationNode.set_choice_text("Petrov Conversation Node")
@@ -104,6 +114,11 @@ func _ready():
 	var petrovNodeD = TextNode.new("Petrov Conversation Node D")
 	petrovNodeD.set_choice_text("Petrov Conversation Node D")
 	petrovNodeD.isConversationNode = true
+	petrovConversationNode.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	petrovNodeA.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	petrovNodeB.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	petrovNodeC.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	petrovNodeD.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
 
 	var wuConversationNode = TextNode.new("Wu Conversation Node Hub")
 	wuConversationNode.set_choice_text("Wu Conversation Node")
@@ -120,6 +135,11 @@ func _ready():
 	var wuNodeD = TextNode.new("Wu Conversation Node D")
 	wuNodeD.set_choice_text("Wu Conversation Node D")
 	wuNodeD.isConversationNode = true
+	wuConversationNode.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	wuNodeA.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	wuNodeB.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	wuNodeC.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
+	wuNodeD.set_conversation_options(cortezNodeA, cortezNodeB, cortezNodeC, cortezNodeD, conversationNodeHub)
 
 	var nodeA = TextNode.new("Option A was chosen")
 	nodeA.set_choice_text("OpionA")
@@ -162,15 +182,18 @@ func _ready():
 	nodeCC.set_soldier_statuses("Deceased", "Deceased", "Deceased", "Deceased")
 
 	startingNode = TextNode.new("This is the opening text")
-	currentNode = startingNode
+	startingNode.choiceText = "Start mission"
 	startingNode.set_options(nodeA, nodeB, nodeC)
 	
+	conversationNodeHub.set_conversation_options(cortezConversationNode, jensenConversationNode, petrovConversationNode, wuConversationNode, startingNode)
 	nodeA.set_options(nodeAA, nodeAB, nodeAC)
 	nodeB.set_options(nodeBA, nodeBB, nodeBC)
 	nodeC.set_options(nodeCA, nodeCB, nodeCC)
 	nodeA.set_game_over_status(true, true, true)
 	nodeB.set_game_over_status(true, true, true)
 	nodeC.set_game_over_status(true, true, true)
+	
+	currentNode = conversationNodeHub
 	
 	status_update.emit()
 	choice_text_update.emit()
