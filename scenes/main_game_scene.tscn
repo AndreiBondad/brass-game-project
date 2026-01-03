@@ -100,6 +100,15 @@ size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 32
 text = "Wu: "
 
+[node name="SkipNotification" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 344.0
+offset_right = 1152.0
+offset_bottom = 384.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Press S to Skip"
+
 [connection signal="choice_text_update" from="MainText" to="." method="_on_main_text_choice_text_update"]
 [connection signal="game_over" from="MainText" to="." method="_on_main_text_game_over"]
 [connection signal="status_update" from="MainText" to="." method="_on_main_text_status_update"]
