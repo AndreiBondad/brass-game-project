@@ -36,3 +36,9 @@ func _on_main_text_choice_text_update() -> void:
 		$TextChoices/Choice1.text = $MainText.currentNode.optionList[0].choiceText
 		$TextChoices/Choice2.text = $MainText.currentNode.optionList[1].choiceText
 		$TextChoices/Choice3.text = $MainText.currentNode.optionList[2].choiceText
+
+func _process(delta: float) -> void:
+	if $MainText.text.length() >= $MainText.currentNode.currentText.length() - 1:
+		$SkipNotification.visible = false
+	else: 
+		$SkipNotification.visible = true

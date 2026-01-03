@@ -212,7 +212,7 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	if (count < displayTextLength):
-		append_text(displayText[count]);
+		self.text = self.text + str(displayText[count])
 		count = count + 1
 
 func _on_choice_1_pressed() -> void:
